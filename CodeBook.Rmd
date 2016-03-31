@@ -1,0 +1,66 @@
+#Code Book
+This is the code book that describes the variables, the data and the transformations that I performed to clean up the data. 
+
+###Data Source
+
+*Original data: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+*Description of the dataset: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+###Data set information
+The experiement was conducted within a group of 30 volunteers with ages 19-48 years. Every person performed 6 different activitis (such as walking, wlaking upstairs, walking downstairs, etc.) while wearing a smartphone on the wrist (Samsung Galaxy S II). Using the accelerometer in the cell phone we were able to measure the acceleration and the velocity of the humans. 70% were selected to generate the training data and 30% the test data. 
+
+The sensor signals were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec ad 50% overlap. 
+
+###The data
+My dataset includes the following files:
+
+*'README.txt'
+
+*'features_info.txt': Info on the variables used on the feature vector.
+
+*'features.txt': All the features.
+
+*'activity_labels.txt': Connects class labels with their activity name.
+
+*'train/X_train.txt': Training set.
+
+*'train/y_train.txt': Training labels.
+
+*'test/X_test.txt': Test set.
+
+*'test/y_test.txt': Test labels.
+
+Files for the train and test data. Their descriptions are equivalent.
+
+*'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. (from 1 to 30)
+
+*'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. (each row=128 element vector) The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis.
+
+*'train/Inertial Signals/body_acc_x_train.txt': Subtract the gravity from the total acceleration.
+
+*'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. (units= radians/second)
+
+
+###Transformation description
+There are 5 major changes:
+
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement.
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive activity names.
+5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+###How is run_analysis.R implemented?
+
+*I use reshapre2 and data.table libraries
+
+*I load test and train data
+
+*I load features and activity labels
+
+*Extract the mean and std column names and data
+
+*Process the test and train data
+
+*Merge the data sets 
